@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# 🌲 Glamping Bosque Escondido - Sitio Web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto es el sitio web para Glamping Bosque Escondido, donde los visitantes pueden encontrar información, hacer reservas y aprender más sobre nuestras instalaciones de glamping de lujo.
 
-## Available Scripts
+## 🚀 Comenzando
 
-In the project directory, you can run:
+Estas instrucciones te proporcionarán una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas. Ve a la sección de [instalación](#-instalación) para conocer cómo desplegar el proyecto.
 
-### `npm start`
+### 📋 Pre-requisitos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Qué cosas necesitas para instalar el software y cómo instalarlas:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- ``Node.js``
+- ``NPM (Node Package Manager)``
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🔧 Instalación
 
-### `npm run build`
+Un paso a paso que te dirá lo que debes ejecutar para tener un entorno de desarrollo ejecutándose:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clona el repositorio en tu máquina local:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+    - ``git clone https://github.com/tu-usuario/tu-repositorio.git``
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Navega al directorio del proyecto:
 
-### `npm run eject`
+    - ``cd glamping-web``
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Ejecuta el servidor de desarrollo:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    - ``npm start``
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+El sitio ahora debería estar corriendo y accesible en `localhost:3000` en tu navegador.
 
-## Learn More
+## 📦 Dependencias
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- React: ^17.0.2
+- React Router DOM para el enrutamiento: ^5.2.0
+- Sass para estilos más dinámicos y personalizables: ^1.32.8
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🛠️ Construido con
 
-### Code Splitting
+- [React.js](https://es.reactjs.org/) - La biblioteca web usada
+- [Sass](https://sass-lang.com/) - Preprocesador CSS
+- [BEM](http://getbem.com/) - Metodología de nombrado y organización de CSS
+- [React Router](https://reactrouter.com/) - Sistema de enrutamiento para React
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🖇️ Lazy Loading y Optimización
 
-### Analyzing the Bundle Size
+Para mejorar el rendimiento, utilizamos `React.lazy` y `Suspense` para cargar nuestros componentes solo cuando se necesiten, lo cual reduce el tiempo de carga inicial de nuestra aplicación.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🎨 Estilos con BEM y Sass
 
-### Making a Progressive Web App
+Los estilos se escriben utilizando la metodología BEM para mantenerlos modulares y organizados. Sass nos permite usar funciones como variables, anidación y mixins para ampliar nuestras hojas de estilo CSS.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## 🎁 Expresiones de Gratitud
 
-### Advanced Configuration
+- Comenta a otros sobre este proyecto 📢
+- Invita una cerveza 🍺 o un café ☕ a alguien del equipo.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

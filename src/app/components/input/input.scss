@@ -1,0 +1,20 @@
+@import '../../../index.scss';
+
+.input {
+  height: 2.5rem;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  border: none;
+  background: var(--background-opaque);
+  color: var(--text-color-bg-contrast);
+  box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, 0.71);
+  -webkit-box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, 0.71);
+  -moz-box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, 0.71);
+
+  &::placeholder {
+    color: var(--text-color-placeholder);
+  }
+}
