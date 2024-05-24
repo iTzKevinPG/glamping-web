@@ -13,13 +13,13 @@ function App() {
     <>
       <Header />
       <Suspense fallback={<div>Cargando...</div>}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/reserve" element={<ReservePage />} />
-          <Route path="/faq" element={<FaqPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-        </Routes>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/reserve" element={<ReservePage />} />
+            <Route path="/faq" element={<FaqPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+          </Routes>
       </Suspense>
     </>
   );

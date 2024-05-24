@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useUser } from '../../contexts/userContext';
 import Button from '../general-button/button';
 import Icon from '../icon-svg/icon';
 import './header.scss';
@@ -7,6 +8,7 @@ import './header.scss';
 function Header() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { user, logout } = useUser();
 
   const getLinkClassName = (path) => {
     return `header__menu--item ${location.pathname === path ? 'active' : ''}`;
@@ -43,25 +45,37 @@ function Header() {
           </Link>
         </div>
         <div className="header__user">
-          <Button
-            text="Iniciar Sesión"
-            color="var(--text-color-bg)"
-            mode="outline"
-            textColor="var(--text-color-bg)"
-            onClick={() => {
-              handleClick('login');
-            }}
-          />
+          {user ? (
+            <>
+              <p>
+                Holiiii
+              </p>
 
-          <Button
-            text="Registrarse"
-            color="var(--secondary-color)"
-            mode="fill"
-            textColor="var(--text-color-bg)"
-            onClick={() => {
-              handleClick('register');
-            }}
-          />
+            </>
+          ) : (
+            <>
+              <Button
+                text="Iniciar Sesión"
+                color="var(--text-color-bg)"
+                mode="outline"
+                textColor="var(--text-color-bg)"
+                onClick={() => {
+                  handleClick('login');
+                }}
+              />
+
+              <Button
+                text="Registrarse"
+                color="var(--secondary-color)"
+                mode="fill"
+                textColor="var(--text-color-bg)"
+                onClick={() => {
+                  handleClick('register');
+                }}
+              />
+            </>)
+          }
+
         </div>
       </div>
     </header>

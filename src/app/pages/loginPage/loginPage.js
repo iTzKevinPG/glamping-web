@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { postAsync } from '../../api/httpClient';
 import Button from '../../components/general-button/button';
 import Input from '../../components/input/input';
+import { useUser } from '../../contexts/userContext';
 import './loginPage.scss';
 
 function LoginPage() {
+  const { login } = useUser();
   const [formValues, setFormValues] = useState({
-    username: '',
+    email: '',
+    password: '',
+    checkValid: false
   });
 
   const handleInputChange = (name, value) => {
@@ -15,70 +21,91 @@ function LoginPage() {
     }));
   };
 
-  const handleClick = () => {
-    alert(`Se escribió: ${formValues.username}`);
+  const handleClick = async () => {
+    if (formValues.email === '' || formValues.password === '') {
+      alert('Todos los campos son requeridos');
+      return
+    }
+
+    try {
+      const response = await postAsync('/login', formValues);
+      login(response);
+    } catch (error) {
+      alert('Ha ocurrido un error');
+    }
   };
 
   return (
-    <div className='container-padre'>
-
-      <div className='container-arbol'>
-        <img className='imagen-arbol' src="/assets/images/arbol.png" alt="Imagen arbol"/>
-        <img className='imagen-LogoGlamping' src="/assets/images/LogoG.svg" alt="Imagen logo"/>
+    <div className="login-container">
+      <div className="login-container__tree">
+        <img
+          className="login-container__tree--img-tree"
+          src="/assets/images/login-trees.svg"
+          alt="Imagen arbol"
+        />
+        <img
+          className="login-container__tree--logo"
+          src="/assets/images/LogoG.svg"
+          alt="Imagen logo"
+        />
       </div>
-      
-      <div className="container">
-        <h1>LOGIN</h1>
 
-        <Input
-          type={'text'}
-          value={formValues.username}
-          onChange={(value) => handleInputChange('username', value)}
-          placeholder={'Usurname'}
-          className={'usuario'}
-        />
-
-        <Input
-          type={'text'}
-          value={formValues.Password}
-          onChange={(value) => handleInputChange('Password', value)}
-          placeholder={'Password'}
-          className={'input_password'}
-        />
-        <div className='div_check'>
-          <input className='input_check' type="checkbox" name="my-checkbox" id="opt-in" />
-          <label className='label_check' for="opt-in">Renember Password</label>
-        </div>
-
-        <div className='div_boton'>
-          <Button
-            className={'btn_login'}
-            text="LOGIN"
-            color="var(--secondary-color)"
-            mode="fill"
-            textColor="var(--text-color-bg)"
-            onClick={() => {
-              handleClick('login');
-            }}
+      <div className='login-container__form'>
+        <div className="login-container__form--container">
+          <h1>LOGIN</h1>
+          <Input
+            type={'text'}
+            value={formValues.email}
+            onChange={(value) => handleInputChange('email', value)}
+            placeholder={'Usuario'}
+            className={'login-container__form--input'}
           />
 
+          <Input
+            type={'password'}
+            value={formValues.password}
+            onChange={(value) => handleInputChange('password', value)}
+            placeholder={'Contraseña'}
+            className={'login-container__form--input'}
+          />
+          <div className="login-container__div_check">
+            <input
+              className="login-container__div_check--input_check"
+              type="checkbox"
+              name="my-checkbox"
+              onChange={(e) => handleInputChange('checkValid', e.target.checked)}
+            />
+            <label className="login-container__div_check--label_check">
+              Recordar contraseña
+            </label>
+          </div>
+
+          <div className="login-container__div_button">
+            <Button
+              className={'login-container__div_button--btn_login'}
+              text="LOGIN"
+              color="var(--secondary-color)"
+              mode="fill"
+              textColor="var(--text-color-bg)"
+              onClick={() => {
+                handleClick('login');
+              }}
+            />
+          </div>
+
+          <div className='login-container__texts'>
+            <Link className='login-container__texts--link' to="/">
+              <span>Olvide la contraseña?</span>
+            </Link>
+
+            <Link className='login-container__texts--link' to="/register">
+              <span>No tienes cuenta? Regístrate</span>
+            </Link>
+          </div>
         </div>
-
-        <div>
-          <p className='P_text'>Forgot Password?</p>
-          <p className='P_text'>Don't have account?</p>
-        </div>
-
-
-
-
-      </div>      
+      </div>
 
     </div>
-    
-
-
-
   );
 }
 

@@ -1,138 +1,95 @@
 @import '../../../index.scss';
 
-h1{
-  color: #d8fff7;
-}
-
-.container-padre{
-
+.register-container {
+  width: 100%;
+  height: 100%;
   display: flex;
   position: relative;
-}
-.container-arbol{
-  flex:1;
-  text-align: left;
+  margin-top: 5rem;
 
-  position:absolute;
-  
-}
+  &__tree {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
 
-.imagen-arbol{
-  width: 60rem;
-  height: 35rem;
-  
+    &--img-tree {
+      width: 59rem;
+      height: 40rem;
+      padding: 0px 0px;
+    }
+  }
 
- 
-  padding: 0px 0px;
-  margin: 0rem 12rem;
+  &__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 
-}
+    &--container {
+      display: flex;
+      flex-direction: column;
+      padding: 90px;
+      margin: 0rem 10rem;
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.354);
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      box-shadow: -20px 20px 20px 0px rgba(0, 0, 0, 0.5);
 
-.container {
-  // margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  padding: 0rem;
- 
-  margin: 0rem 20rem;
+      & h1 {
+        color: #d8fff7;
+      }
+    }
 
-  //gap: 1rem;
-  height:30rem;
-  width:50rem;
-  z-index: 1;
-  
-  background-color: rgba(255, 255, 255, 0.455);
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  box-shadow: -20px 20px 20px 0px  rgba(0, 0, 0, 0.5); 
-}
+    &--input {
+      margin-top: 2rem;
+    }
 
-.container-inputpadre{
-  display: flex;
-}
-.container-input, .container-input2{
-  flex: 1; /* Para que ambos ocupen el mismo espacio */
-  display: flex;
-  flex-direction: column; /* Para apilar los inputs verticalmente */
-  
-}
-.container-input2{
-  margin-left: 5rem; /* Espacio entre los grupos de inputs */
-}
-.Full-name{
- 
-  width: 12rem;
-  height: 2.8rem;
-  margin: 1rem;
-  background-color: antiquewhite;
-}
-.Address{
-  width: 12rem;
-  height: 2.8rem;
-  // padding: 7px;
-  margin: 1rem;
-  background-color: antiquewhite;
-  display: flex;
-}
+    &--inputs {
+      display: flex;
+      gap: 5rem;
+      width: 40rem;
+    }
 
-.input_password{
-  width: 12rem;
-  height: 2.8rem;
-  // padding: 7px;
-  margin: 1rem;
-  background-color: antiquewhite;
-  display: flex;
+  }
 
-}
+  &__div_check {
+    padding: 1rem 0px;
 
-.Email-address{
-  width: 12rem;
-  height: 2.8rem;
-  // padding: 7px;
-  margin: 1rem;
-  background-color: antiquewhite;
-  display: flex;
-}
+    &--input_check {
+      transform: scale(1.5);
+    }
 
-.phone{
-  width: 12rem;
-  height: 2.8rem;
-  // padding: 7px;
-  margin: 1rem;
-  background-color: antiquewhite;
-  display: flex;
-}
+    &--label_check {
+      color: #000000;
+      padding: 0px 5px;
+      font-size: 18px;
+    }
+  }
 
-.Confirm-Password{
-  width: 12rem;
-  height: 2.8rem;
-  // padding: 7px;
-  margin: 1rem;
-  background-color: antiquewhite;
-  display: flex;
-}
+  &__div_button {
+    margin: 10px 0px 5px 0px;
+  }
 
+  &__texts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
 
-.div_check{
-  width: 300px;
-  padding: 10px 0px;
-}
+    &--link {
+      color: #000000;
+      text-decoration: none;
+      transition: color 0.3s;
 
-.label_check{
-  color:#E2FFD8;
-  padding: 0px 5px;
-  font-size: 18px;
-}
-
-.input_check{
-  transform: scale(1.5);
-}
-
-.div_boton{
-  margin: 10px 0px 5px 0px;
-}
-
-.P_text{
-  margin: 0px;
+      &:hover {
+        color: var(--secondary-color);
+      }
+    }
+  }
 }

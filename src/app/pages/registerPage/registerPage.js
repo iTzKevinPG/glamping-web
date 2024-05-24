@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { postAsync } from '../../api/httpClient';
 import Button from '../../components/general-button/button';
 import Input from '../../components/input/input';
 import './registerPage.scss';
 
 function RegisterPage() {
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
-    username: '',
+    fullName: '',
+    email: '',
+    address: '',
+    phone: '',
+    password: '',
+    validPassword: '',
+    checkValid: false
   });
 
   const handleInputChange = (name, value) => {
@@ -15,110 +24,131 @@ function RegisterPage() {
     }));
   };
 
-  const handleClick = () => {
-    alert(`Se escribió: ${formValues.username}`);
+  const handleClick = async () => {
+    if (formValues.fullName === '' || formValues.email === '' || formValues.address === '' || formValues.phone === '' || formValues.password === '' || formValues.validPassword === '' || !formValues.checkValid) {
+      alert('Todos los campos son requeridos'); 
+      return;
+    }
+
+    if (formValues.password !== formValues.validPassword) {
+      alert('Las contraseñas no coinciden');
+      return;
+    }
+
+    try {
+      console.log(formValues);
+      const response = await postAsync('/register', formValues);
+      if (response) {
+        alert('Usuario creado con éxito!');
+        navigate(`/login`);
+      }
+    } catch (error) {
+      alert('Ha ocurrido un error');
+    }
   };
 
   return (
-    <div className='container-padre'>
-
-      <div className='container-arbol'>
-        <img className='imagen-arbol' src="/assets/images/arbol.png" alt="Descripción de la imagen" />
+    <div className="register-container">
+      <div className="register-container__tree">
+        <img
+          className="register-container__tree--img-tree"
+          src="/assets/images/register-trees.svg"
+          alt="Imagen arbol"
+        />
       </div>
 
-      <div className="container">
-        <h1>REGISTRARSE</h1>
+      <div className='register-container__form'>
+        <div className="register-container__form--container">
+          <h1>REGISTER</h1>
 
-        <div className='container-inputpadre'>
-          <div className='container-input'>
-            <Input
-              type={'text'}
-              value={formValues.username}
-              onChange={(value) => handleInputChange('Full name', value)}
-              placeholder={'Full name'}
-              className={'Full-name'}
+          <div className='register-container__form--inputs'>
+            <div className='register-container__form--column'>
+              <Input
+                type={'text'}
+                value={formValues.fullName}
+                onChange={(value) => handleInputChange('fullName', value)}
+                placeholder={'Nombre completo'}
+                className={'register-container__form--input'}
+              />
+              <Input
+                type={'text'}
+                value={formValues.phone}
+                onChange={(value) => handleInputChange('phone', value)}
+                placeholder={'Teléfono'}
+                className={'register-container__form--input'}
+              />
+
+              <Input
+                type={'text'}
+                value={formValues.password}
+                onChange={(value) => handleInputChange('password', value)}
+                placeholder={'Contraseña'}
+                className={'register-container__form--input'}
+              />
+            </div>
+
+            <div className='register-container__form--column'>
+
+              <Input
+                type={'text'}
+                value={formValues.email}
+                onChange={(value) => handleInputChange('email', value)}
+                placeholder={'Email'}
+                className={'register-container__form--input'}
+              />
+
+              <Input
+                type={'text'}
+                value={formValues.address}
+                onChange={(value) => handleInputChange('address', value)}
+                placeholder={'Dirección'}
+                className={'register-container__form--input'}
+              />
+
+              <Input
+                type={'text'}
+                value={formValues.validPassword}
+                onChange={(value) => handleInputChange('validPassword', value)}
+                placeholder={'Confirmar contraseña'}
+                className={'register-container__form--input'}
+              />
+            </div>
+          </div>
+
+          <div className="register-container__div_check">
+          <input
+              className="login-container__div_check--input_check"
+              type="checkbox"
+              name="my-checkbox"
+              onChange={(e) => handleInputChange('checkValid', e.target.checked)}
             />
+            <label className="register-container__div_check--label_check">
+              Acepto términos y condiciones
+            </label>
+          </div>
 
-            <Input
-              type={'text'}
-              value={formValues.username}
-              onChange={(value) => handleInputChange('contraseña', value)}
-              placeholder={'Address'}
-              className={'Address'}
-            />
-
-            <Input
-              type={'text'}
-              value={formValues.username}
-              onChange={(value) => handleInputChange('contraseña', value)}
-              placeholder={'Password'}
-              className={'input_password'}
+          <div className="register-container__div_button">
+            <Button
+              className={'register-container__div_button--btn_login'}
+              text="REGISTRARSE"
+              color="var(--secondary-color)"
+              mode="fill"
+              textColor="var(--text-color-bg)"
+              onClick={() => {
+                handleClick('login');
+              }}
             />
           </div>
 
-          <div className='container-input2'>
-            <Input
-              type={'text'}
-              value={formValues.username}
-              onChange={(value) => handleInputChange('contraseña', value)}
-              placeholder={'Email address'}
-              className={'Email-address'}
-            />
-
-            <Input
-              type={'text'}
-              value={formValues.username}
-              onChange={(value) => handleInputChange('contraseña', value)}
-              placeholder={'Phone No'}
-              className={'phone'}
-            />
-
-            <Input
-              type={'text'}
-              value={formValues.username}
-              onChange={(value) => handleInputChange('contraseña', value)}
-              placeholder={'Confirm Password'}
-              className={'Confirm-Password'}
-            />
+          <div className='register-container__texts'>
+            <Link className='register-container__texts--link' to="/login">
+              <span>Ya tienes una cuenta? Inicia Sesión</span>
+            </Link>
           </div>
-
-
         </div>
-        <div className='div_check'>
-          <input className='input_check' type="checkbox" name="my-checkbox" id="opt-in" />
-          <label className='label_check' for="opt-in">Acepto terminos y condiciones</label>
-        </div>
-
-
-        <div className='div_boton'>
-          <Button
-            className={'btn_login'}
-            text="REGISTRARSE"
-            color="var(--secondary-color)"
-            mode="fill"
-            textColor="var(--text-color-bg)"
-            onClick={() => {
-              handleClick('registrarse');
-            }}
-          />
-
-        </div>
-
-        <div>
-          <p className='P_text'>Already have an account? login</p>
-          
-        </div>
-
-
-
-
       </div>
 
     </div>
-
-
-
-
   );
 }
 

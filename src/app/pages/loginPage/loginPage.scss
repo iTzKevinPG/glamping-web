@@ -1,96 +1,98 @@
 @import '../../../index.scss';
 
-
-
-.container-padre{
-
+.login-container {
+  width: 100%;
+  height: 100%;
   display: flex;
   position: relative;
-}
-.container-arbol{
+  margin-top: 5rem;
+
+  &__tree {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin-left: 2rem;
+
+    &--img-tree {
+      width: 35rem;
+      height: 34rem;
+      padding: 0px 0px;
+      margin: 4rem 10px 0 10px;
+    }
+
+    &--logo {
+      width: 16rem;
+      height: 34rem;
+      padding: 0px 0px;
+      margin: 0 0 0 15rem;
+    }
+  }
+
+  &__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    &--container {
+      display: flex;
+      flex-direction: column;
+      padding: 90px;
+      margin: 0rem 10rem;
+      z-index: 1;
+      background-color: rgba(255, 255, 255, 0.354);
+      justify-content: center;
+      align-items: center;
+      border-radius: 10px;
+      box-shadow: -20px 20px 20px 0px rgba(0, 0, 0, 0.5);
+
+      & h1 {
+        color: #d8fff7;
+      }
+    }
+
+    &--input{
+      margin-top: 1rem;
+    }
+  }
+
+  &__div_check{
+    width: 200px;
+    padding: 10px 0px;
     
-  text-align: left;
- 
-  position:absolute;
- 
-}
+    &--input_check{
+      transform: scale(1.5);
+    }
 
-.imagen-arbol{
-  width: 35rem;
-  height: 34rem;
-  
+    &--label_check{
+      color: #000000;
+      padding: 0px 5px;
+      font-size: 18px;
+    }
+  }
 
- 
-  padding: 0px 0px;
-  margin: 0px 10px;
+  &__div_button{
+    margin: 10px 0px 5px 0px;
+  }
 
-}
+  &__texts{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
 
-.imagen-LogoGlamping{
-  width: 16rem;
-  height: 34rem;
-  
+    &--link {
+      color: #000000;
+      text-decoration: none;
+      transition: color 0.3s;
 
- 
-  padding: 0px 0px;
-  margin: 0rem 15rem;
-}
-
-.container {
-  // margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  // padding: 10rem;
-  padding: 90px;
-  margin: 0rem 10rem;
-  z-index: 1;
-  //gap: 1rem;
-  height:22rem;
-  width:20%;
-  
-  background-color: rgba(255, 255, 255, 0.354);
-  justify-content: center;
-  align-items: center;
-  border-radius: 10px;
-  box-shadow: -20px 20px 20px 0px  rgba(0, 0, 0, 0.5); 
-}
-
-h1{
-  color: #d8fff7;
-}
-
-.usuario{
- 
-  width: 300px;
-  // padding: 7px;
-  background-color: rgb(255, 255, 255);
-}
-.input_password{
-  width: 300px;
-  // padding: 7px;
-  margin: 30px 0px 0px;
-  background-color: rgb(255, 255, 255);
-}
-
-.div_check{
-  width: 200px;
-  padding: 10px 0px;
-}
-
-.label_check{
-  color:#000000;
-  padding: 0px 5px;
-  font-size: 18px;
-}
-
-.input_check{
-  transform: scale(1.5);
-}
-
-.div_boton{
-  margin: 10px 0px 5px 0px;
-}
-
-.P_text{
-  margin: 0px;
+      &:hover {
+        color: var(--secondary-color);
+      }
+    }
+  }
 }
