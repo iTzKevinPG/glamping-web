@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useUser } from '../../contexts/userContext';
 import Button from '../general-button/button';
 import Icon from '../icon-svg/icon';
+import Popup from '../popup/popup';
+import ProfileForm from '../profile-form/profileForm';
 import './header.scss';
 
 function Header() {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, logout } = useUser();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
 
   const getLinkClassName = (path) => {
     return `header__menu--item ${location.pathname === path ? 'active' : ''}`;
@@ -47,10 +54,23 @@ function Header() {
         <div className="header__user">
           {user ? (
             <>
-              <p>
-                Holiiii
-              </p>
+              <p className="header__user--welcome">{user.message}</p>
 
+              <Icon
+                name="user-icon"
+                size={{ width: '5rem', height: 'auto' }}
+                color="var(--text-color-bg)"
+              />
+
+              <Button
+                text="Perfil"
+                color="var(--secondary-color)"
+                mode="fill"
+                textColor="var(--text-color-bg)"
+                onClick={() => {
+                  togglePopup();
+                }}
+              />
             </>
           ) : (
             <>
@@ -73,11 +93,14 @@ function Header() {
                   handleClick('register');
                 }}
               />
-            </>)
-          }
-
+            </>
+          )}
         </div>
       </div>
+
+      <Popup isOpen={isOpen} onClose={togglePopup}>
+        <ProfileForm></ProfileForm>
+      </Popup>
     </header>
   );
 }

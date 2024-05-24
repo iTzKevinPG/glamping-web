@@ -45,5 +45,11 @@
   &__user {
     display: flex;
     gap: 1rem;
+
+    &--welcome {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text-color-bg);
+    }
   }
 }

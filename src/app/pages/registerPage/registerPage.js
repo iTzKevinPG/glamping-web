@@ -14,7 +14,7 @@ function RegisterPage() {
     phone: '',
     password: '',
     validPassword: '',
-    checkValid: false
+    checkValid: false,
   });
 
   const handleInputChange = (name, value) => {
@@ -25,8 +25,16 @@ function RegisterPage() {
   };
 
   const handleClick = async () => {
-    if (formValues.fullName === '' || formValues.email === '' || formValues.address === '' || formValues.phone === '' || formValues.password === '' || formValues.validPassword === '' || !formValues.checkValid) {
-      alert('Todos los campos son requeridos'); 
+    if (
+      formValues.fullName === '' ||
+      formValues.email === '' ||
+      formValues.address === '' ||
+      formValues.phone === '' ||
+      formValues.password === '' ||
+      formValues.validPassword === '' ||
+      !formValues.checkValid
+    ) {
+      alert('Todos los campos son requeridos');
       return;
     }
 
@@ -43,6 +51,10 @@ function RegisterPage() {
         navigate(`/login`);
       }
     } catch (error) {
+      if (error.response.data && error.response.data.status_code === 409) {
+        alert('El email o nombre de usuario ya se encuentra registrado');
+        return;
+      }
       alert('Ha ocurrido un error');
     }
   };
@@ -57,12 +69,12 @@ function RegisterPage() {
         />
       </div>
 
-      <div className='register-container__form'>
+      <div className="register-container__form">
         <div className="register-container__form--container">
           <h1>REGISTER</h1>
 
-          <div className='register-container__form--inputs'>
-            <div className='register-container__form--column'>
+          <div className="register-container__form--inputs">
+            <div className="register-container__form--column">
               <Input
                 type={'text'}
                 value={formValues.fullName}
@@ -87,8 +99,7 @@ function RegisterPage() {
               />
             </div>
 
-            <div className='register-container__form--column'>
-
+            <div className="register-container__form--column">
               <Input
                 type={'text'}
                 value={formValues.email}
@@ -116,11 +127,13 @@ function RegisterPage() {
           </div>
 
           <div className="register-container__div_check">
-          <input
+            <input
               className="login-container__div_check--input_check"
               type="checkbox"
               name="my-checkbox"
-              onChange={(e) => handleInputChange('checkValid', e.target.checked)}
+              onChange={(e) =>
+                handleInputChange('checkValid', e.target.checked)
+              }
             />
             <label className="register-container__div_check--label_check">
               Acepto términos y condiciones
@@ -140,14 +153,13 @@ function RegisterPage() {
             />
           </div>
 
-          <div className='register-container__texts'>
-            <Link className='register-container__texts--link' to="/login">
+          <div className="register-container__texts">
+            <Link className="register-container__texts--link" to="/login">
               <span>Ya tienes una cuenta? Inicia Sesión</span>
             </Link>
           </div>
         </div>
       </div>
-
     </div>
   );
 }

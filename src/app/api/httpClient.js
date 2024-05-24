@@ -1,11 +1,15 @@
 import axios from 'axios';
 
-const httpClient = axios.create({
-  baseURL: 'http://localhost:8080',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-});
+const httpClient = () => {
+  const axiosInstance = axios.create({
+    baseURL: 'http://localhost:8080',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  return axiosInstance;
+};
 
 export const getAsync = async (path, params) => {
   try {
@@ -20,7 +24,7 @@ export const getAsync = async (path, params) => {
 
 export const postAsync = async (path, request) => {
   try {
-    const axiosInstance = await httpClient();
+    const axiosInstance = httpClient();
     const response = await axiosInstance.post(path, request);
     return response.data;
   } catch (error) {
