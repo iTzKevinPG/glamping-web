@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { postAsync } from '../../api/httpClient';
 import Button from '../../components/general-button/button';
 import Input from '../../components/input/input';
@@ -7,11 +7,12 @@ import { useUser } from '../../contexts/userContext';
 import './loginPage.scss';
 
 function LoginPage() {
-  const { login } = useUser();
+  const { login, user } = useUser();
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({
     email: '',
     password: '',
-    checkValid: false
+    checkValid: false,
   });
 
   const handleInputChange = (name, value) => {
@@ -24,16 +25,27 @@ function LoginPage() {
   const handleClick = async () => {
     if (formValues.email === '' || formValues.password === '') {
       alert('Todos los campos son requeridos');
-      return
+      return;
     }
 
     try {
       const response = await postAsync('/login', formValues);
-      login(response);
+      login(response.result.result);
+      navigate(`/`);
     } catch (error) {
+      if (error.response.data && error.response.data.status_code === 404) {
+        alert('Las credenciales son incorrectas');
+        return;
+      }
       alert('Ha ocurrido un error');
     }
   };
+
+  useEffect(() => {
+    if (user) {
+      navigate(`/`);
+    }
+  }, []);
 
   return (
     <div className="login-container">
@@ -50,7 +62,7 @@ function LoginPage() {
         />
       </div>
 
-      <div className='login-container__form'>
+      <div className="login-container__form">
         <div className="login-container__form--container">
           <h1>LOGIN</h1>
           <Input
@@ -73,7 +85,9 @@ function LoginPage() {
               className="login-container__div_check--input_check"
               type="checkbox"
               name="my-checkbox"
-              onChange={(e) => handleInputChange('checkValid', e.target.checked)}
+              onChange={(e) =>
+                handleInputChange('checkValid', e.target.checked)
+              }
             />
             <label className="login-container__div_check--label_check">
               Recordar contraseña
@@ -93,18 +107,17 @@ function LoginPage() {
             />
           </div>
 
-          <div className='login-container__texts'>
-            <Link className='login-container__texts--link' to="/">
+          <div className="login-container__texts">
+            <Link className="login-container__texts--link" to="/">
               <span>Olvide la contraseña?</span>
             </Link>
 
-            <Link className='login-container__texts--link' to="/register">
+            <Link className="login-container__texts--link" to="/register">
               <span>No tienes cuenta? Regístrate</span>
             </Link>
           </div>
         </div>
       </div>
-
     </div>
   );
 }
