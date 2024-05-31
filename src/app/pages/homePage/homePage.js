@@ -8,6 +8,11 @@ function HomePage() {
   const { user } = useUser();
   const navigate = useNavigate();
 
+  const openMap = () => {
+    console.log('hola');
+    window.open(`https://maps.app.goo.gl/NqjoAVx8zEZiZ4Qd6`, '_blank');
+  };
+
   return (
     <>
       <div className="home">
@@ -16,10 +21,12 @@ function HomePage() {
           <div className="home__text">
             <h1 className="home__title">Glamping Bosque Escondido</h1>
             <p className="home__description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Vive una experiencia única en contacto con la naturaleza sin
+              renunciar al lujo y confort. Perfecto para una escapada romántica
+              o una aventura familiar. ¡Explora, relájate y renueva tu espíritu
+              en Glamping Bosque Escondido!
             </p>
-            <h2 className="home__subtitle">Of Virtual Reality</h2>
+            <h2 className="home__subtitle">Lo natural es mejor</h2>
             <div className="home__button">
               <Button
                 text="Reservar"
@@ -50,7 +57,7 @@ function HomePage() {
           </div>
         </div>
         <div className="home__contact">
-          <div className="home__contact-item">
+          <div className="home__contact-item" onClick={() => openMap()}>
             <img
               src="../assets/icons/Location-Icon.svg"
               alt="Location"
