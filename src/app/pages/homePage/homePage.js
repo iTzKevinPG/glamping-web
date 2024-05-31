@@ -1,12 +1,89 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import Button from '../../components/general-button/button';
+import { useUser } from '../../contexts/userContext';
 import './homePage.scss';
 
 function HomePage() {
+  const { user } = useUser();
+  const navigate = useNavigate();
+
   return (
     <>
-      <div className="backGroundLines two"></div>
-      <div>
-        <h1>Bienvenido a Glamping Bosque Escondido</h1>
+      <div className="home">
+        <div className="backGroundLines two"></div>
+        <div className="home__content">
+          <div className="home__text">
+            <h1 className="home__title">Glamping Bosque Escondido</h1>
+            <p className="home__description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
+            <h2 className="home__subtitle">Of Virtual Reality</h2>
+            <div className="home__button">
+              <Button
+                text="Reservar"
+                color="var(--primary-color)"
+                mode="fill"
+                textColor="var(--text-color-bg)"
+                onClick={() => {
+                  if (user) {
+                    navigate('/reserve');
+                  } else {
+                    navigate('/login');
+                  }
+                }}
+              />
+            </div>
+          </div>
+          <div className="home__image">
+            <img
+              src="../assets/images/glampin2.svg"
+              alt="Glamping Bosque Escondido"
+            />
+          </div>
+          <div className="home__background">
+            <img
+              src="../assets/images/fondoglampinsvg.svg"
+              alt="Bosque Escondido"
+            />
+          </div>
+        </div>
+        <div className="home__contact">
+          <div className="home__contact-item">
+            <img
+              src="../assets/icons/Location-Icon.svg"
+              alt="Location"
+              className="home__contact-icon"
+            />
+            <div className="home__contact-info">
+              <h3>Visita el glamping</h3>
+              <p>Vda. El Peñol, Peñol, Antioquias</p>
+            </div>
+          </div>
+          <div className="home__contact-item">
+            <img
+              src="../assets/icons/phone-call.svg"
+              alt="Phone"
+              className="home__contact-icon"
+            />
+            <div className="home__contact-info">
+              <h3>Llámanos</h3>
+              <p>(604) 111-1010</p>
+            </div>
+          </div>
+          <div className="home__contact-item">
+            <img
+              src="../assets/icons/mail.svg"
+              alt="Message"
+              className="home__contact-icon"
+            />
+            <div className="home__contact-info">
+              <h3>Envíanos un mensaje</h3>
+              <p>glamping@antioquiaglam.com</p>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

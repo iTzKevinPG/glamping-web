@@ -1,1 +1,95 @@
 @import '../../../index.scss';
+
+.home {
+  position: relative;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    margin-bottom: 3.5rem;
+  }
+
+  &__background {
+    position: absolute;
+    top: 10rem;
+    right: 15.5rem;
+    z-index: 1;
+    overflow: hidden;
+
+    img {
+      width: 90%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  &__text {
+    width: 50%;
+    z-index: 3;
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    color: var(--primary-color-light);
+  }
+
+  &__description {
+    font-size: 1.2rem;
+  }
+
+  &__subtitle {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+  }
+
+  &__button {
+    margin-top: 20px;
+  }
+
+  &__image {
+    margin-inline-end: -28rem;
+    width: 59%;
+    z-index: 2;
+    position: relative;
+    margin-top: 10rem;
+
+    img {
+      width: 40%;
+      height: auto;
+      border-radius: 10px;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: rgba(30, 127, 127, 0.76);
+    border-radius: 12rem;
+    margin: 0 5rem;
+  }
+
+  &__contact-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &-icon {
+      width: 40px;
+      margin-right: 10px;
+    }
+  }
+
+  &__contact-info {
+    h3 {
+      margin: 0;
+      color: var(--dark-color);
+    }
+
+    p {
+      margin: 5px 0 0;
+    }
+  }
+}

@@ -59,7 +59,7 @@ function LoginPage() {
           />
           <img
             className="login-container__tree--logo"
-            src="/assets/images/LogoG.svg"
+            src="/assets/images/logo2v.svg"
             alt="Imagen logo"
           />
         </div>
