@@ -10,9 +10,8 @@ Estas instrucciones te proporcionarán una copia del proyecto en funcionamiento 
 
 Qué cosas necesitas para instalar el software y cómo instalarlas:
 
-- ``Node.js``
-- ``NPM (Node Package Manager)``
-
+- `Node.js`
+- `NPM (Node Package Manager)`
 
 ### 🔧 Instalación
 
@@ -20,16 +19,15 @@ Un paso a paso que te dirá lo que debes ejecutar para tener un entorno de desar
 
 1. Clona el repositorio en tu máquina local:
 
-    - ``git clone https://github.com/tu-usuario/tu-repositorio.git``
+   - `git clone https://github.com/tu-usuario/tu-repositorio.git`
 
 2. Navega al directorio del proyecto:
 
-    - ``cd glamping-web``
+   - `cd glamping-web`
 
-4. Ejecuta el servidor de desarrollo:
+3. Ejecuta el servidor de desarrollo:
 
-    - ``npm start``
-
+   - `npm start`
 
 El sitio ahora debería estar corriendo y accesible en `localhost:3000` en tu navegador.
 
@@ -38,6 +36,7 @@ El sitio ahora debería estar corriendo y accesible en `localhost:3000` en tu na
 - React: ^17.0.2
 - React Router DOM para el enrutamiento: ^5.2.0
 - Sass para estilos más dinámicos y personalizables: ^1.32.8
+- Api necesario [Glamping-Api](https://github.com/iTzKevinPG/glamping-api)
 
 ## 🛠️ Construido con
 
@@ -58,4 +57,3 @@ Los estilos se escriben utilizando la metodología BEM para mantenerlos modulare
 
 - Comenta a otros sobre este proyecto 📢
 - Invita una cerveza 🍺 o un café ☕ a alguien del equipo.
-
