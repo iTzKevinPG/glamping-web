@@ -37,6 +37,7 @@
 
   &__description {
     font-size: 1.2rem;
+    color: var(--text-color-bg);
   }
 
   &__subtitle {
@@ -64,7 +65,7 @@
 
   &__contact {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding: 20px;
     background-color: rgba(30, 127, 127, 0.76);
     border-radius: 12rem;
@@ -86,11 +87,18 @@
   &__contact-info {
     h3 {
       margin: 0;
-      color: var(--dark-color);
+      color: var(--text-color-bg);
     }
 
     p {
+      color: var(--text-color-bg);
       margin: 5px 0 0;
     }
+  }
+
+  &__line-separator {
+    width: 1px;
+    height: 4.5rem;
+    background-color: var(--text-color-bg);
   }
 }

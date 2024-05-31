@@ -68,6 +68,7 @@ function HomePage() {
               <p>Vda. El Peñol, Peñol, Antioquias</p>
             </div>
           </div>
+          <div className="home__line-separator"></div>
           <div className="home__contact-item">
             <img
               src="../assets/icons/phone-call.svg"
@@ -79,6 +80,7 @@ function HomePage() {
               <p>(604) 111-1010</p>
             </div>
           </div>
+          <div className="home__line-separator"></div>
           <div className="home__contact-item">
             <img
               src="../assets/icons/mail.svg"
