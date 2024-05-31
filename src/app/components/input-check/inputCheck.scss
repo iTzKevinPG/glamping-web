@@ -1,0 +1,36 @@
+@import '../../../index.scss';
+
+.check-option-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: hsl(0, 0, 100, 37%);
+  padding: 15px 20px;
+  border-radius: 5px;
+  margin: 1rem 0;
+  box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, 0.71);
+  -webkit-box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, 0.71);
+  -moz-box-shadow: 3px 3px 2px 1px rgba(0, 0, 0, 0.71);
+
+  &__radio-button {
+    margin-right: 10px;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    &--label {
+      flex-grow: 1;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    &--icon {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}

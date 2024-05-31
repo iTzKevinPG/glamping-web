@@ -1,5 +1,84 @@
 @import '../../../index.scss';
+@import '../input/input.scss';
+@import '../bank-data/bankData.scss';
 
-.profile-form-container {
-  background: red;
+.profile-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  height: 100%;
+  overflow: auto;
+
+  &__custom-line {
+    border: 2px solid;
+    width: 90%;
+    background-color: var(--text-color-bg-contrast);
+  }
+
+  &__profile-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  &__profile-image-container {
+    flex: none;
+    margin-right: 4rem;
+    margin-top: 4rem;
+    margin-left: 2rem;
+  }
+
+  &__form-container {
+    padding: 10px 5rem;
+    border-radius: 8px;
+    width: 100%;
+
+    h1 {
+      color: rgba(36, 48, 16, 1);
+      text-align: center;
+    }
+
+    h2 {
+      color: rgba(36, 48, 16, 1);
+      text-align: center;
+    }
+  }
+
+  &__input-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    height: 5rem;
+
+    &--input {
+      flex: 1;
+      margin-right: 30px;
+      height: 3.8rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+    width: 100%;
+
+    &--btn {
+      width: 10rem;
+      display: flex;
+    }
+  }
+
+  &__delete-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 1rem;
+  }
 }

@@ -10,7 +10,7 @@ import './header.scss';
 function Header() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { user, logout } = useUser();
+  const { user } = useUser();
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {

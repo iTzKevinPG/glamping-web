@@ -1,0 +1,40 @@
+@import '../../../index.scss';
+
+.faq {
+  padding: 1rem;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background: hsl(105, 100, 92, 54%);
+  border-radius: 2.5px;
+
+  &__title {
+    font-size: 28px;
+    color: #000;
+    margin-bottom: 20px;
+  }
+
+  &__item {
+    border-radius: 5px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__question {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  &__answer {
+    font-size: 16px;
+  }
+
+  &__btn {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}

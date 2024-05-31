@@ -55,31 +55,31 @@
       }
     }
 
-    &--input{
+    &--input {
       margin-top: 1rem;
     }
   }
 
-  &__div_check{
+  &__div_check {
     width: 200px;
     padding: 10px 0px;
-    
-    &--input_check{
+
+    &--input_check {
       transform: scale(1.5);
     }
 
-    &--label_check{
+    &--label_check {
       color: #000000;
       padding: 0px 5px;
       font-size: 18px;
     }
   }
 
-  &__div_button{
+  &__div_button {
     margin: 10px 0px 5px 0px;
   }
 
-  &__texts{
+  &__texts {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
