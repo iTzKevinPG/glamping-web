@@ -6,10 +6,7 @@ function ReservePage() {
     <>
       <div className="backGroundLines"></div>
       <div className="container-reserve gradient-bg-animation">
-        <h1>
-          😓 Aquí debía ir el front end de reservas, lastimosamente no se hizo, el
-          compañero Faiber les explicara!. 😁
-        </h1>
+        <h1>😓 En proceso. 😁</h1>
       </div>
     </>
   );

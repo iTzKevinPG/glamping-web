@@ -66,7 +66,7 @@ function LoginPage() {
 
         <div className="login-container__form">
           <div className="login-container__form--container">
-            <h1>LOGIN</h1>
+            <h1>INICIO DE SESIÓN</h1>
             <Input
               type={'text'}
               value={formValues.email}

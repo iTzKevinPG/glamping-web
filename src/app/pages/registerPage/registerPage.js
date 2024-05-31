@@ -72,7 +72,7 @@ function RegisterPage() {
 
         <div className="register-container__form">
           <div className="register-container__form--container">
-            <h1>REGISTER</h1>
+            <h1>REGISTRARSE</h1>
 
             <div className="register-container__form--inputs">
               <div className="register-container__form--column">
